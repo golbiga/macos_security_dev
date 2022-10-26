@@ -47,6 +47,8 @@ references:
     - N/A
   800-171r2:
     - 3.13.9
+  hipaa:
+    - 164.312(a)(2)(iii)
 macOS:
   - "13.0"
 odv:
@@ -59,6 +61,7 @@ tags:
   - 800-53r4_high 
   - 800-171
   - cnssi-1253
+  - hipaa
 severity: "medium"
 mobileconfig: false
 mobileconfig_info:

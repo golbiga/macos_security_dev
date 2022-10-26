@@ -1,0 +1,36 @@
+id: system_settings_list_all_user
+title: "List all users on the system"
+discussion: |
+  macOS _MUST_ be configured to only allow authorized users.
+check: |
+  /usr/bin/dscl . list /users shell | /usr/bin/egrep -v '(^_)|(root)|(/usr/bin/false)' | /usr/bin/awk '{print $1}'
+result: 
+  string: "a list containing authorized users that can login"
+fix: |
+  Remove the user that is not authorized to use the system.
+
+  [source,bash]
+  ----
+  /usr/sbin/sysadminctl -deleteUser NOT_AUTHORIZED_USERNAME
+  ----
+references:
+  cce:
+    - N/A
+  cci: 
+    - N/A
+  800-53r5:
+    - N/A
+  800-53r4: 
+    - N/A
+  disa_stig:
+    - N/A
+    - 164.312(a)(1)
+    - 164.312(a)(2)(i)
+    - 164.312(d)
+macOS:
+  - "13.0"
+tags:
+  - manual
+  - hipaa
+mobileconfig: false
+mobileconfig_info:

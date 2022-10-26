@@ -52,6 +52,8 @@ references:
     controls v8:
       - 4.1
       - 4.8
+  hipaa:
+    - 164.312(a)(1)      
 macOS:
     - "13.0"
 tags:
@@ -64,6 +66,7 @@ tags:
   - 800-171 
   - cnssi-1253
   - cisv8
+  - hipaa
 severity: "medium"
 mobileconfig: true
 mobileconfig_info:

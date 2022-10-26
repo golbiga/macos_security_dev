@@ -32,6 +32,8 @@ references:
       - N/A
     controls v8:
       - 10.5
+  hipaa:
+    - 164.306(a)(2)      
 macOS:
   - "13.0"
 tags:
@@ -43,6 +45,7 @@ tags:
   - 800-171
   - cnssi-1253
   - cisv8
+  - hipaa
 mobileconfig: true
 mobileconfig_info:
   com.apple.ManagedClient.preferences:

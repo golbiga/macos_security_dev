@@ -1,0 +1,47 @@
+id: os_world_writable_configure
+title: "Ensure No World Writable Files Exist on the System"
+discussion: |
+  Folders in /System/Volumes/Data/ _MUST_ not be world-writable.
+
+  NOTE: Some vendors are known to create world-writable files and folders for their application to properly function.
+check: |
+  while IFS='' read -rd '' this_path; do
+  if ! xattr -p com.apple.rootless "${this_path}" &> /dev/null; then
+    echo "${this_path#/System/Volumes/Data}"
+  fi
+  done < <(find /System/Volumes/Data -not \( -path /System/Volumes/Data/System/Volumes -prune \) -perm 777 -print0 2> /dev/null)
+result:
+  string: "A list of files and folders with world writable permissions"
+fix: |
+  Review the results of the check and make permissions modifications where applicable.
+references:
+  cce:
+    - N/A
+  cci:
+    - N/A
+  800-53r5:
+    - N/A
+  800-53r4:
+    - N/A
+  srg:
+    - N/A
+  disa_stig:
+    - N/A
+  800-171r2:
+    - N/A
+  cis:
+    benchmark:
+      - N/A
+    controls v8:
+      - N/A
+  hipaa:
+    - 164.312(a)(1)
+    - 164.312(a)(2)(i)
+    - 164.312(d)    
+macOS:
+  - "13.0"
+tags:
+  - hipaa
+  - manual
+mobileconfig: false
+mobileconfig_info:

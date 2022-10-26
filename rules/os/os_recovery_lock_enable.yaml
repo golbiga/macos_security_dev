@@ -27,6 +27,8 @@ references:
     - N/A
   800-171r2:
     - 3.1.5
+  hipaa:
+    - 164.312(a)(1)
 macOS:
   - "13.0"
 tags:
@@ -38,6 +40,7 @@ tags:
   - cnssi-1253
   - arm64
   - manual
+  - hipaa
 severity: "medium"
 mobileconfig: false
 mobileconfig_info:

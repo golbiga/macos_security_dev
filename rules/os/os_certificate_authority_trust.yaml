@@ -19,6 +19,8 @@ references:
     - SC-17
   disa_stig:
     - N/A
+  hipaa:
+    - 164.306(a)(2)    
 macOS:
   - "13.0"
 tags:
@@ -28,6 +30,7 @@ tags:
   - 800-53r4_high 
   - cnssi-1253 
   - manual
+  - hipaa
 severity: "high"
 mobileconfig: false
 mobileconfig_info:

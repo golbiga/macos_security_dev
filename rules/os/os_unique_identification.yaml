@@ -25,6 +25,9 @@ references:
     controls v8:
       - 5.1
       - 6.1
+  hipaa:
+    - 164.312(a)(2)(i)
+    - 164.312(d)
 macOS:
   - "13.0"
 tags:
@@ -33,5 +36,6 @@ tags:
   - 800-53r5_high
   - inherent
   - cisv8
+  - hipaa
 mobileconfig: false
 mobileconfig_info:

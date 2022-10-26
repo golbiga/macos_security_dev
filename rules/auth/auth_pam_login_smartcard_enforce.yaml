@@ -61,6 +61,9 @@ references:
       - 6.3
       - 6.4
       - 6.5
+  hipaa:
+    - 164.312(a)(2)(i)
+    - 164.312(d)      
 macOS:
   - "13.0"
 tags:
@@ -73,6 +76,7 @@ tags:
   - 800-171 
   - cnssi-1253
   - cisv8
+  - hipaa  
 severity: "medium"
 mobileconfig: false
 mobileconfig_info:

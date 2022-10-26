@@ -41,6 +41,8 @@ references:
     - N/A
   800-171r2:
     - N/A
+  hipaa:
+    - 164.312(b)
 macOS:
   - "13.0"
 tags:
@@ -48,6 +50,7 @@ tags:
   - 800-53r5_low 
   - 800-53r5_moderate 
   - 800-53r5_high
+  - hipaa
 severity: "medium"
 mobileconfig: false
 mobileconfig_info:

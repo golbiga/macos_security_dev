@@ -19,6 +19,9 @@ references:
     - N/A
   srg:
     - N/A
+  hipaa:
+    - 164.312(a)(2)(i)
+    - 164.312(d)
 macOS:
   - "13.0"
 tags:
@@ -30,5 +33,6 @@ tags:
   - 800-53r4_high
   - cnssi-1253
   - n_a
+  - hipaa
 mobileconfig: false
 mobileconfig_info:

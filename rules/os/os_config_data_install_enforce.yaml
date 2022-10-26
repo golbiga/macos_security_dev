@@ -42,6 +42,8 @@ references:
       - 10.1
       - 10.2
       - 10.4
+  hipaa:
+    - 164.306(a)(2)      
 macOS:
   - "13.0"
 tags:
@@ -51,6 +53,7 @@ tags:
   - cis_lvl1
   - cis_lvl2
   - cisv8
+  - hipaa
 severity: "high"
 mobileconfig: true
 mobileconfig_info:

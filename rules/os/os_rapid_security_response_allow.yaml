@@ -33,6 +33,8 @@ references:
       - N/A
     controls v8:
       - N/A
+  hipaa:
+    - 164.306(a)(2)
 macOS:
   - "13.0"
 tags:
@@ -40,6 +42,7 @@ tags:
   - 800-53r5_moderate 
   - 800-53r5_high 
   - 800-171
+  - hipaa
 mobileconfig: true
 mobileconfig_info:
   com.apple.applicationaccess:

@@ -26,11 +26,14 @@ references:
     - N/A
   disa_stig:
     - N/A
+  hipaa:
+    - 164.312(a)(1)    
 macOS:
   - "13.0"
 tags:
   - 800-53r5_high 
   - manual
+  - hipaa
 severity: "medium"
 mobileconfig: false
 mobileconfig_info:

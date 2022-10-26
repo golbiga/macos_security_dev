@@ -43,6 +43,8 @@ references:
       - 4.1
       - 4.8
       - 15.3
+  hipaa:
+    - 164.312(a)(1)      
 macOS:
   - "13.0"
 tags:
@@ -56,6 +58,7 @@ tags:
   - cnssi-1253
   - cis_lvl2
   - cisv8
+  - hipaa
 mobileconfig: true
 mobileconfig_info:
   com.apple.applicationaccess:

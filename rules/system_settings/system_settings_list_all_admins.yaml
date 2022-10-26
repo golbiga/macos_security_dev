@@ -1,0 +1,37 @@
+id: system_settings_list_all_admin_users
+title: "List all admin sers on the system"
+discussion: |
+  macOS _MUST_ be configured to only allow authorized users.
+check: |
+  /usr/bin/dscl . read /groups/admin GroupMembership | /usr/bin/awk -F": " '{print $2}'
+result: 
+  string: "a list containing authorized users that have administrative privileges"
+fix: |
+  Remove the user that is not authorized to be an admin on the system.
+
+  [source,bash]
+  ----
+  /usr/sbin/dseditgroup -o edit -d NOT_AUTHORIZED_USERNAME -t user admin
+  ----
+references:
+  cce:
+    - N/A
+  cci: 
+    - N/A
+  800-53r5:
+    - N/A
+  800-53r4: 
+    - N/A
+  disa_stig:
+    - N/A
+  hipaa:
+    - 164.312(a)(1)
+    - 164.312(a)(2)(i)
+    - 164.312(d)  
+macOS:
+  - "13.0"
+tags:
+  - manual
+  - hipaa
+mobileconfig: false
+mobileconfig_info:

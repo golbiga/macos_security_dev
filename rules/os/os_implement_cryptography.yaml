@@ -29,6 +29,9 @@ references:
     - N/A
   800-171r2:
     - 3.13.11
+  hipaa:
+    - 164.312(a)(2)(iv)
+    - 164.312(e)(2)(ii)
 macOS:
   - "13.0"
 tags:
@@ -41,5 +44,6 @@ tags:
   - 800-171
   - cnssi-1253
   - inherent
+  - hipaa
 mobileconfig: false
 mobileconfig_info:

@@ -32,12 +32,16 @@ references:
     - N/A
   disa_stig:
     - N/A
+  hipaa:
+    - 164.312(a)(2)(i)
+    - 164.312(d)    
 macOS:
   - "13.0"
 tags:
   - 800-53r4_moderate 
   - 800-53r5_moderate 
   - cnssi-1253
+  - hipaa
 severity: "medium"
 mobileconfig: true
 mobileconfig_info:

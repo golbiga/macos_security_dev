@@ -52,6 +52,8 @@ references:
       - 10.1
       - 10.2
       - 10.5
+  hipaa:
+    - 164.306(a)(2)      
 macOS:
   - "13.0"
 tags:
@@ -60,5 +62,6 @@ tags:
   - 800-53r5_moderate
   - 800-53r5_high
   - cisv8
+  - hipaa
 mobileconfig: false
 mobileconfig_info:

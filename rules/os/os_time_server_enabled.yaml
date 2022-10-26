@@ -34,6 +34,8 @@ references:
       - N/A
     controls v8:
       - 8.4
+  hipaa:
+    - 164.306(a)(2)        
 macOS:
   - "13.0"
 tags:
@@ -45,6 +47,7 @@ tags:
   - 800-53r4_moderate 
   - 800-53r4_high
   - cisv8
+  - hipaa
 severity: "medium"
 mobileconfig: false
 mobileconfig_info:

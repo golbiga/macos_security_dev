@@ -38,6 +38,10 @@ references:
       - 5.2
       - 6.2
       - 6.8
+  hipaa:
+    - 164.312(a)(1)
+    - 164.312(a)(2)(i)
+    - 164.312(d)
 macOS:
   - "13.0"
 tags:
@@ -52,5 +56,6 @@ tags:
   - cis_lvl1
   - cis_lvl2
   - cisv8
+  - hipaa
 mobileconfig: false
 mobileconfig_info:

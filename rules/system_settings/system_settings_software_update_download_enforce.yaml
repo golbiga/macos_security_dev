@@ -32,12 +32,15 @@ references:
     controls v8:
       - 7.3
       - 7.4
+  hipaa:
+    - 164.306(a)(2)
 macOS:
   - "13.0"
 tags:
   - cis_lvl1
   - cis_lvl2
   - cisv8
+  - hipaa
 mobileconfig: true
 mobileconfig_info:
   com.apple.SoftwareUpdate:
