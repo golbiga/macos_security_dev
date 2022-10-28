@@ -116,3 +116,4 @@ payloads_types:
   - com.apple.preferences.sharing.SharingPrefsExtension
   - com.apple.controlcenter
   - com.apple.locationmenu
+  - com.apple.RemoteManagement
