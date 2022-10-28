@@ -1,7 +1,7 @@
 id: system_settings_list_all_admin_users
-title: "List all admin sers on the system"
+title: "List All Admin Users on the System"
 discussion: |
-  macOS _MUST_ be configured to only allow authorized users.
+  Only specific users _MUST_ be configured with administrative privileges
 check: |
   /usr/bin/dscl . read /groups/admin GroupMembership | /usr/bin/awk -F": " '{print $2}'
 result: 

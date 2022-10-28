@@ -1,5 +1,5 @@
 id: system_settings_internet_accounts_disable
-title: "Disable the Internet Accounts System Preference Pane"
+title: "Disable the Internet Accounts System Settings Pane"
 discussion: |
   The Internet Accounts System Setting _MUST_ be disabled to prevent the addition of unauthorized internet accounts.
 

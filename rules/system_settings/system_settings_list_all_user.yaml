@@ -1,5 +1,5 @@
 id: system_settings_list_all_user
-title: "List all users on the system"
+title: "List All Users on the System"
 discussion: |
   macOS _MUST_ be configured to only allow authorized users.
 check: |
