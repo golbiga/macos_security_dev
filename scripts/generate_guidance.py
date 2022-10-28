@@ -20,7 +20,7 @@ from itertools import groupby
 from uuid import uuid4
 
 class MacSecurityRule():
-    def __init__(self, title, rule_id, severity, discussion, check, fix, cci, cce, nist_controls, nist_171, disa_stig, srg, cis, custom_refs, odv, tags, result_value, mobileconfig, mobileconfig_info, customized):
+    def __init__(self, title, rule_id, severity, discussion, check, fix, cci, cce, nist_controls, nist_171, disa_stig, hipaa, srg, cis, custom_refs, odv, tags, result_value, mobileconfig, mobileconfig_info, customized):
         self.rule_title = title
         self.rule_id = rule_id
         self.rule_severity = severity
@@ -32,6 +32,7 @@ class MacSecurityRule():
         self.rule_80053r5 = nist_controls
         self.rule_800171 = nist_171
         self.rule_disa_stig = disa_stig
+        self.rule_hipaa = hipaa
         self.rule_srg = srg
         self.rule_cis = cis
         self.rule_custom_refs = custom_refs
@@ -55,6 +56,7 @@ class MacSecurityRule():
             rule_cci=self.rule_cci,
             rule_80053r5=self.rule_80053r5,
             rule_disa_stig=self.rule_disa_stig,
+            rule_hipaa=self.rule_hipaa,
             rule_cis=self.rule_cis,
             rule_srg=self.rule_srg,
             rule_result=self.rule_result_value
@@ -1228,7 +1230,7 @@ def generate_xls(baseline_name, build_path, baseline_yaml):
     top = xlwt.easyxf("align: vert top")
     headers = xlwt.easyxf("font: bold on")
     counter = 1
-    column_counter = 16
+    column_counter = 17
     custom_ref_column = {}
     sheet1.write(0, 0, "CCE", headers)
     sheet1.write(0, 1, "Rule ID", headers)
@@ -1242,10 +1244,11 @@ def generate_xls(baseline_name, build_path, baseline_yaml):
     sheet1.write(0, 9, "800-171", headers)
     sheet1.write(0, 10, "SRG", headers)
     sheet1.write(0, 11, "DISA STIG", headers)
-    sheet1.write(0, 12, "CIS Benchmark", headers)
-    sheet1.write(0, 13, "CIS v8", headers)
-    sheet1.write(0, 14, "CCI", headers)
-    sheet1.write(0, 15, "Modifed Rule", headers)
+    sheet1.write(0, 12, "HIPAA", headers)
+    sheet1.write(0, 13, "CIS Benchmark", headers)
+    sheet1.write(0, 14, "CIS v8", headers)
+    sheet1.write(0, 15, "CCI", headers)
+    sheet1.write(0, 16, "Modifed Rule", headers)
     sheet1.set_panes_frozen(True)
     sheet1.set_horz_split_pos(1)
     sheet1.set_vert_split_pos(2)
@@ -1322,29 +1325,37 @@ def generate_xls(baseline_name, build_path, baseline_yaml):
         sheet1.write(counter, 11, disa_refs, topWrap)
         sheet1.col(11).width = 500 * 15
 
+        hipaa_refs = (str(rule.rule_hipaa)).strip('[]\'')
+        hipaa_refs = hipaa_refs.replace(", ", "\n").replace("\'", "")
+
+        sheet1.write(counter, 12, hipaa_refs, topWrap)
+        sheet1.col(12).width = 400 * 15
+
         cis = ""
         if rule.rule_cis != ['None']:
             for title, ref in rule.rule_cis.items():
                 if title.lower() == "benchmark":
-                    sheet1.write(counter, 12, ref, topWrap)
-                    sheet1.col(12).width = 500 * 15
+                    sheet1.write(counter, 13, ref, topWrap)
+                    sheet1.col(13).width = 500 * 15
                 if title.lower() == "controls v8":
                     cis = (str(ref).strip('[]\''))
                     cis = cis.replace(", ", "\n")
-                    sheet1.write(counter, 13, cis, topWrap)
-                    sheet1.col(13).width = 500 * 15
+                    sheet1.write(counter, 14, cis, topWrap)
+                    sheet1.col(14).width = 500 * 15
+
+
 
         cci = (str(rule.rule_cci)).strip('[]\'')
         cci = cci.replace(", ", "\n").replace("\'", "")
 
-        sheet1.write(counter, 14, cci, topWrap)
-        sheet1.col(13).width = 400 * 15
+        sheet1.write(counter, 15, cci, topWrap)
+        sheet1.col(15).width = 400 * 15
 
         customized = (str(rule.rule_customized)).strip('[]\'')
         customized = customized.replace(", ", "\n").replace("\'", "")
 
-        sheet1.write(counter, 15, customized, topWrap)
-        sheet1.col(14).width = 400 * 15
+        sheet1.write(counter, 16, customized, topWrap)
+        sheet1.col(16).width = 400 * 15
 
         if rule.rule_custom_refs != ['None']:
             for title, ref in rule.rule_custom_refs.items():
@@ -1385,6 +1396,7 @@ def create_rules(baseline_yaml):
             'discussion',
             'customized']
     references = ['disa_stig',
+                  'hipaa',
                   'cci',
                   'cce',
                   '800-53r5',
@@ -1431,6 +1443,7 @@ def create_rules(baseline_yaml):
                                         rule_yaml['references']['800-53r5'],
                                         rule_yaml['references']['800-171r2'],
                                         rule_yaml['references']['disa_stig'],
+                                        rule_yaml['references']['hipaa'],
                                         rule_yaml['references']['srg'],
                                         rule_yaml['references']['cis'],
                                         rule_yaml['references']['custom'],
@@ -1676,6 +1689,11 @@ def main():
         adoc_additional_docs_template = adoc_additional_docs_file.read() + "\n"
 
     # set tag attribute
+    if "HIPAA" in baseline_yaml['title'].upper():
+        adoc_HIPAA_show=":show_HIPAA:"
+    else:
+        adoc_HIPAA_show=":show_HIPAA!:"
+
     if "STIG" in baseline_yaml['title'].upper():
         adoc_STIG_show=":show_STIG:"
     else:
@@ -1696,6 +1714,7 @@ def main():
         adoc_STIG_show=":show_STIG:"
         adoc_cis_show=":show_cis:"
         adoc_171_show=":show_171:"
+        adoc_HIPAA_show=":show_HIPAA"
     else:
         adoc_tag_show=":show_tags!:"
 
@@ -1720,6 +1739,7 @@ def main():
         tag_attribute=adoc_tag_show,
         nist171_attribute=adoc_171_show,
         stig_attribute=adoc_STIG_show,
+        hipaa_attribute=adoc_HIPAA_show,
         cis_attribute=adoc_cis_show,
         version=version_yaml['version'],
         os_version=version_yaml['os'],
@@ -1833,6 +1853,12 @@ def main():
                 disa_stig = ulify(rule_yaml['references']['disa_stig'])
 
             try:
+                rule_yaml['references']['hipaa']
+            except KeyError:
+                hipaa = '- N/A'
+            else:
+                hipaa = ulify(rule_yaml['references']['hipaa'])
+            try:
                 rule_yaml['references']['cis']
             except KeyError:
                 cis = ""
@@ -1922,6 +1948,7 @@ def main():
                     rule_80053r5=nist_controls,
                     rule_800171=nist_800171,
                     rule_disa_stig=disa_stig,
+                    rule_hipaa=hipaa,
                     rule_cis=cis,
                     rule_cce=cce,
                     rule_custom_refs=custom_refs,
@@ -1939,6 +1966,7 @@ def main():
                     rule_80053r5=nist_controls,
                     rule_800171=nist_800171,
                     rule_disa_stig=disa_stig,
+                    rule_hipaa=hipaa,
                     rule_cis=cis,
                     rule_cce=cce,
                     rule_tags=tags,
@@ -1955,6 +1983,7 @@ def main():
                     rule_80053r5=nist_controls,
                     rule_800171=nist_800171,
                     rule_disa_stig=disa_stig,
+                    rule_hipaa=hipaa,
                     rule_cis=cis,
                     rule_cce=cce,
                     rule_tags=tags,
