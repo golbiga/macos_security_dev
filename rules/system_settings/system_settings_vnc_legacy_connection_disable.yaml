@@ -1,0 +1,44 @@
+id: system_settings_vnc_legacy_connection_disable
+title: "Disable Legacy VNC Connection"
+discussion: |
+  If Remote Management with screen sharing is used it _MUST_ be configured to disable legacy VNC connections.
+check: |
+  /usr/bin/osascript -l JavaScript << EOS
+  $.NSUserDefaults.alloc.initWithSuiteName('com.apple.RemoteManagement')\
+  .objectForKey('VNCLegacyConnectionsEnabled').js
+  EOS
+result:
+  string: "false"
+fix: |
+  This is implemented by a Configuration Profile.
+references:
+  cce:
+    - N/A
+  cci: 
+    - N/A
+  800-53r5:
+    - CN/A
+  800-53r4:
+    - N/A
+  srg:
+    - N/A
+  disa_stig:
+    - N/A
+  800-171r2:
+    - N/A
+  cis:
+    benchmark:
+      - N/A
+    controls v8:
+      - N/A
+  hipaa:
+    - 164.312(a)(1)
+    - 164.312(a)(2)(i)      
+macOS:
+  - "13.0"
+tags:
+  - hipaa
+mobileconfig: true
+mobileconfig_info:
+  com.apple.RemoteManagement:
+    VNCLegacyConnectionsEnabled: false

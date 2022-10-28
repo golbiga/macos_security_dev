@@ -1,0 +1,42 @@
+id: os_remote_management_diffie_hellman_disable
+title: "Disable Diffie-Hellman "
+discussion: |
+  If Remote Management with screen sharing is used it _MUST_ be configured to disable insecure Diffie-Hellman connections.
+check: |
+  /usr/bin/osascript -l JavaScript << EOS
+  $.NSUserDefaults.alloc.initWithSuiteName('com.apple.RemoteManagement')\
+  .objectForKey('allowInsecureDH').js
+  EOS
+result:
+  string: "false"
+fix: |
+  This is implemented by a Configuration Profile.
+references:
+  cce:
+    - N/A
+  cci: 
+    - N/A
+  800-171r2:
+    - N/A
+  800-53r5:
+    - N/A
+  srg:
+    - N/A
+  disa_stig:
+    - N/A
+  cis:
+    benchmark:
+      - N/A
+    controls v8:
+      - N/A
+  hipaa:
+    - 164.312(a)(2)(iv)
+    - 164.312(e)(2)(ii) 
+macOS:
+  - "13.0"
+tags:
+  - hipaa
+mobileconfig: true
+mobileconfig_info:
+  com.apple.RemoteManagement:
+    allowInsecureDH: false
