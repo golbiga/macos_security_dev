@@ -45,6 +45,11 @@ ifdef::show_STIG[]
 !$rule_disa_stig
 endif::[]
 
+ifdef::show_HIPAA[]
+!HIPAA(s)
+!$rule_hipaa
+endif::[]
+
 ifdef::show_CIS[]
 $rule_cis
 endif::[]

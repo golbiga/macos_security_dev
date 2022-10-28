@@ -19,6 +19,7 @@ endif::[]
 :nofooter:
 $nist171_attribute
 $stig_attribute
+$hipaa_attribute
 $cis_attribute
 :version: $version ($release_date)
 :os: $os_version
