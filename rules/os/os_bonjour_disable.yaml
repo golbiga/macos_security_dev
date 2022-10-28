@@ -2,6 +2,8 @@ id: os_bonjour_disable
 title: "Disable Bonjour Multicast"
 discussion: |
   Bonjour multicast advertising _MUST_ be disabled to prevent the system from broadcasting its presence and available services over network interfaces.
+
+  NOTE: Some applications may not operate properly if the mDNSResponder is turned off.
 check: |
   /usr/bin/osascript -l JavaScript << EOS
   $.NSUserDefaults.alloc.initWithSuiteName('com.apple.mDNSResponder')\
@@ -33,9 +35,7 @@ references:
       - 4.1 (level 2)
     controls v8:
       - 4.1
-      - 4.8
-  hipaa:
-    - 164.306(a)(2)      
+      - 4.8    
 macOS:
   - "13.0"
 tags:
@@ -49,7 +49,6 @@ tags:
   - cnssi-1253
   - cis_lvl2
   - cisv8
-  - hipaa
 severity: "medium"
 mobileconfig: true
 mobileconfig_info:
