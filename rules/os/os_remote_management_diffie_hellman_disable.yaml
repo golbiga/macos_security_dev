@@ -1,5 +1,5 @@
 id: os_remote_management_diffie_hellman_disable
-title: "Disable Diffie-Hellman "
+title: "Disable Diffie-Hellman for Remote Management"
 discussion: |
   If Remote Management with screen sharing is used it _MUST_ be configured to disable insecure Diffie-Hellman connections.
 check: |
