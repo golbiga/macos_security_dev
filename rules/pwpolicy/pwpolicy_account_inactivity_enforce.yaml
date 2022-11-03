@@ -55,6 +55,8 @@ references:
       - N/A
     controls v8:
       - 5.3
+  hipaa:
+    - 164.312(a)(2)(ii)      
 macOS:
   - "13.0"
 odv:
@@ -69,5 +71,6 @@ tags:
   - 800-53r5_moderate
   - 800-53r5_high
   - cisv8
+  - hipaa
 mobileconfig: false
 mobileconfig_info:

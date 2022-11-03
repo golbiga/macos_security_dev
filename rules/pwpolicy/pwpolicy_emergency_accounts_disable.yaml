@@ -27,6 +27,8 @@ references:
     - N/A
   disa_stig:
     - N/A
+  hipaa:
+    - 164.312(a)(2)(ii)    
 macOS:
   - "13.0"
 tags:
@@ -36,5 +38,6 @@ tags:
   - 800-53r4_high
   - cnssi-1253
   - inherent
+  - hipaa
 mobileconfig: false
 mobileconfig_info:
