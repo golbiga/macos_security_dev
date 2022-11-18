@@ -8,6 +8,8 @@ discussion: |
   This configuration ensures that audit lists include events in which enforcement actions attempts to modify a file. 
 
   Without auditing the enforcement of access restrictions, it is difficult to identify attempted attacks, as there is no audit trail available for forensic investigation.
+
+  NOTE: Auditing of all file modifications with the OpenBSM auditing can lead to performance issues and audit storage capacity may be reached or exceeded before the anticipated time.
 check: |
   /usr/bin/awk -F':' '/^flags/ { print $NF }' /etc/security/audit_control | /usr/bin/tr ',' '\n' | /usr/bin/grep -Ec '^fm'
 result:
@@ -41,10 +43,12 @@ references:
     - N/A
   800-171r2:
     - N/A
+  hipaa:
+    - 164.312(b)    
 macOS:
   - "13.0"
 tags:
-  - none
+  - hipaa
 severity: "medium"
 mobileconfig: false
 mobileconfig_info:

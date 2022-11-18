@@ -40,6 +40,15 @@ ASSOCIATED DOCUMENTS
 |link:https://www.cnss.gov/CNSS/issuances/Instructions.cfm[CNSSI No. 1253]|_Security Categorization and Control Selection for National Security Systems_
 |===
 
+[%header, cols=2*a]
+.Health Insurance Portability and Accountability Act (HIPAA)
+|===
+|Document Number or Descriptor
+|Document Title 
+|link:https://csrc.nist.gov/publications/detail/sp/800-66/rev-2/draft[NIST Special Publication 800-66 Rev 2 Draft 2]|_An Introductory Resource Guide for Implementing the Health Insurance Portability and Accountability Act (HIPAA) Security Rule_
+|link:https://405d.hhs.gov/protect[HHS 405(d) Aligning Health Care Industry Security Approaches]|_HHS 405(d) Aligning Health Care Industry Security Approaches_
+|===
+
 === Non-Government Documents
 [%header, cols=2*a]
 .Apple
@@ -56,5 +65,5 @@ ASSOCIATED DOCUMENTS
 |===
 |Document Number or Descriptor
 |Document Title
-|link:https://www.cisecurity.org/benchmark/apple_os/[Apple macOS 12.0]|_CIS Apple macOS 12.0 Benchmark version 2.1.0_
+|link:https://www.cisecurity.org/benchmark/apple_os/[Apple macOS 13.0]|_CIS Apple macOS 13.0 Benchmark version 1.0.0_
 |===

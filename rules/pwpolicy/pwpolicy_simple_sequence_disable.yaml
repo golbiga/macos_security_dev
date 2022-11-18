@@ -38,6 +38,8 @@ references:
       - N/A
     controls v8:
       - 5.2
+  hipaa:
+    - 164.312(d)      
 macOS:
   - "13.0"
 tags:
@@ -50,6 +52,7 @@ tags:
   - 800-53r5_moderate
   - 800-53r5_high 
   - cisv8
+  - hipaa
 mobileconfig: true
 mobileconfig_info:
   com.apple.mobiledevice.passwordpolicy:

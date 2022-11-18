@@ -36,6 +36,7 @@ references:
       - 7.4
   hipaa:
     - 164.306(a)(2)
+    - 164.306(e) 
 macOS:
   - "13.0"
 tags:
