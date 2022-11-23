@@ -38,6 +38,7 @@ references:
       - 8.1
   hipaa:
     - 164.312(b)
+    - 164.308(a)(1(ii)(D)
 macOS:
   - "13.0"
 odv:
