@@ -2,7 +2,7 @@ title: "macOS 13.0: Security Configuration - All Rules"
 description: |
   This guide describes the actions to take when securing a macOS 13.0 system against the all_rules baseline.
 
-  Information System Security Officers and benchmark creators can use this catalog of settings in order to assist them in security benchmark creation. This catalog is not intended to provide a one-size-fits-all blueprint for compliance, and satisfaction of every item is not likely to be possible or sensible in many operational scenarios. Organizations must conduct proper risk analysis to aid in security benchmark creation. In that analysis an organization should determine the most appropriate way to achieve compliance, taking into account the characteristics of the organization and its environment.
+  This catalog of settings was designed to support Information System Security Officers and benchmark creators by accelerating and simplifying the security benchmark creation process. This catalog is not intended to provide a one-size-fits-all blueprint for securing organizational assets and complying with federal mandates. It should be noted that some items in this catalog are not applicable to certain operational scenarios. Every organization must conduct its own risk analysis and account for applicable requirements to determine organization-specific security benchmark needs.
 authors: |
   |===
   |Bob Gendler|National Institute of Standards and Technology
