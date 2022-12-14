@@ -30,7 +30,7 @@ references:
     benchmark:
       - 5.10 (level 1)
     controls v8: 
-      - N/A
+      - 4.1
   hipaa:
     - 164.312(a)(1)      
 macOS:

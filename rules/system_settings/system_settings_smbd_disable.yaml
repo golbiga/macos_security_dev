@@ -35,8 +35,7 @@ references:
     benchmark:
       - 2.3.3.3 (level 1)
     controls v8:
-      - 4.1
-      - 4.8
+      - 5.4
   hipaa:
     - 164.312(a)(1)
     - 164.312(a)(2)(i)

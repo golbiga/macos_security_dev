@@ -35,7 +35,6 @@ references:
       - 3.4 (level 1)
     controls v8:
       - 8.3
-      - 8.1
   hipaa:
     - 164.312(b)
     - 164.308(a)(1(ii)(D)
